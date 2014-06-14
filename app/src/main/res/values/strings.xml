@@ -1,8 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-
     <string name="app_name">TestingApp</string>
-    <string name="hello_world">Hello world!</string>
-    <string name="action_settings">Settings</string>
-
+    <string-array name="pictures">
+        <item>picture1</item>
+        <item>picture2</item>
+        <item>picture3</item>
+        <item>picture4</item>
+    </string-array>
 </resources>
