@@ -2,21 +2,27 @@ package com.ruenzuo.testingapp.extensions;
 
 import android.content.Context;
 import android.util.AttributeSet;
+import android.util.TypedValue;
 import android.view.View;
 import android.widget.ListView;
 
 import java.util.Dictionary;
 import java.util.Hashtable;
 
+import static android.util.TypedValue.applyDimension;
+
 /**
  * Created by renzocrisostomo on 14/06/14.
  */
 public class ObservableListView extends ListView {
 
+    private float px;
+
     private Callbacks mCallbacks;
 
     public ObservableListView(Context context, AttributeSet attrs) {
         super(context, attrs);
+        px = applyDimension(TypedValue.COMPLEX_UNIT_DIP, 200, getResources().getDisplayMetrics());
     }
 
     @Override
@@ -59,10 +65,7 @@ public class ObservableListView extends ListView {
 
     public int getViewHeigth(View v) {
         int viewPosition = getPositionForView(v);
-        int scrollY = 0;
-        for (int i = 0; i < viewPosition; ++i) {
-            scrollY += getChildAt(i).getHeight();
-        }
+        int scrollY = Math.round(viewPosition * px);
         return scrollY;
     }
 
